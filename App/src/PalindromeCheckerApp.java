@@ -1,7 +1,6 @@
 import java.util.Scanner;
-import java.util.Stack;
 
-public class UseCase5PalindromeCheckerApp {
+public class UseCase3PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
@@ -10,26 +9,18 @@ public class UseCase5PalindromeCheckerApp {
 
         // Take input from user
         System.out.print("Enter a string: ");
-        String inputString = scanner.nextLine();
-
-        // Create Stack to store characters
-        Stack<Character> stack = new Stack<>();
-
-        // Push each character into stack
-        for (int i = 0; i < inputString.length(); i++) {
-            stack.push(inputString.charAt(i));
-        }
+        String originalString = scanner.nextLine();
 
         // Variable to store reversed string
         String reversedString = "";
 
-        // Pop characters from stack (LIFO order)
-        while (!stack.isEmpty()) {
-            reversedString = reversedString + stack.pop();
+        // Reverse string using for loop
+        for (int i = originalString.length() - 1; i >= 0; i--) {
+            reversedString = reversedString + originalString.charAt(i);
         }
 
-        // Compare original and reversed string
-        if (inputString.equals(reversedString)) {
+        // Compare original and reversed string using equals()
+        if (originalString.equals(reversedString)) {
             System.out.println("The given string is a Palindrome.");
         } else {
             System.out.println("The given string is NOT a Palindrome.");
