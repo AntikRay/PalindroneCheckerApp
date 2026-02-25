@@ -1,10 +1,23 @@
-// version 1.0
-//author Abc
-//useCase 1: Welcome page
-public class PalindroneCheckerApp {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Palindrome Checker App Management System");
-        System.out.println("Modify this logic to usecase 2");
-    }
+public class UseCase3PalindromeCheckerApp {
 
+    public static void main(String[] args) {
+
+        // Hardcoded string
+        String originalString = "madam";
+
+        // Variable to store reversed string
+        String reversedString = "";
+
+        // Reverse string using for loop
+        for (int i = originalString.length() - 1; i >= 0; i--) {
+            reversedString = reversedString + originalString.charAt(i);
+        }
+
+        // Compare original and reversed string using equals()
+        if (originalString.equals(reversedString)) {
+            System.out.println("The given string \"" + originalString + "\" is a Palindrome.");
+        } else {
+            System.out.println("The given string \"" + originalString + "\" is NOT a Palindrome.");
+        }
+    }
 }
