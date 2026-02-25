@@ -1,8 +1,9 @@
 import java.util.Scanner;
-import java.util.Deque;
+import java.util.Stack;
+import java.util.Queue;
 import java.util.LinkedList;
 
-public class UseCase7PalindromeCheckerApp {
+public class UseCase6PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
@@ -13,22 +14,25 @@ public class UseCase7PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String inputString = scanner.nextLine();
 
-        // Create Deque
-        Deque<Character> deque = new LinkedList<>();
+        // Create Stack and Queue
+        Stack<Character> stack = new Stack<>();
+        Queue<Character> queue = new LinkedList<>();
 
-        // Insert characters into deque
+        // Add characters to both Stack and Queue
         for (int i = 0; i < inputString.length(); i++) {
-            deque.addLast(inputString.charAt(i));
+            char ch = inputString.charAt(i);
+            stack.push(ch);     // LIFO
+            queue.add(ch);      // FIFO (Enqueue)
         }
 
         boolean isPalindrome = true;
 
-        // Compare front and rear elements
-        while (deque.size() > 1) {
-            char front = deque.removeFirst();
-            char rear = deque.removeLast();
+        // Compare pop (Stack) and dequeue (Queue)
+        while (!stack.isEmpty()) {
+            char fromStack = stack.pop();      // LIFO
+            char fromQueue = queue.remove();   // FIFO (Dequeue)
 
-            if (front != rear) {
+            if (fromStack != fromQueue) {
                 isPalindrome = false;
                 break;
             }
