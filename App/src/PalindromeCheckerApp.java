@@ -1,30 +1,40 @@
-Palindrome Checker App
-The objective of the PalindromeChecker App is to design and implement a console-based Java application that validates whether a given string is a palindrome under different conditions, while strengthening core programming fundamentals and data structure concepts.
+import java.util.Scanner;
 
-UC10: Case-Insensitive & Space-Ignored Palindrome
-Goal: Ignore spaces and case while checking a palindrome.
-Flow:
-Normalize string
-Apply previous logic
-Key Concepts used in UC10:
-String preprocessing
-Regular expressions
-Data Structure: String / Array
+public class UseCase10PalindromeCheckerApp {
 
+    // Function to check palindrome
+    public static boolean isPalindrome(String str) {
+        int start = 0;
+        int end = str.length() - 1;
 
+        while (start < end) {
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
 
+    public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
 
+        // Step 1: Normalize string
+        // Remove spaces and convert to lowercase
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
 
+        // Step 2: Check palindrome
+        if (isPalindrome(normalized)) {
+            System.out.println("The given string is a Palindrome (case & space ignored).");
+        } else {
+            System.out.println("The given string is NOT a Palindrome (case & space ignored).");
+        }
 
-
-
-
-Please refer to the code snapshot below to write your code
-
-Please refer to the hint below to write your code
-
-
-Please first compile the program using javac UseCase10PalindromeCheckerApp.java and run the Program using java UseCase10PalindromeCheckerApp as shown below
-
+        scanner.close();
+    }
+}
